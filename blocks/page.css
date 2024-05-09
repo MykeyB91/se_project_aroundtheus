@@ -1,0 +1,23 @@
+.page {
+  background-color: black;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.page__content {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.header {
+  max-width: 880px;
+  max-height: 74px;
+}
+
+.header__logo {
+  color: white;
+  width: 173px;
+  height: 33px;
+  margin-top: 45px;
+  margin-bottom: 1139px;
+}
