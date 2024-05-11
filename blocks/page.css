@@ -51,9 +51,9 @@
   grid-template-areas:
     "title button"
     "description description";
-  grid-template-columns: minmax(auto, 373px) auto;
+  grid-template-columns: minmax(auto, 375px) auto;
   align-items: center;
-  max-width: 373px;
+  grid-gap: 18px;
 }
 
 .profile__title {
@@ -87,7 +87,7 @@
   width: 150px;
   height: 50px;
   margin-left: auto;
-  margin-right: 200px;
+
   border: 2px solid #ffffff;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .card__like-button {
-  background: transparent url(../images/) center no-repeat;
+  background: transparent url(../images/Vector.svg) center no-repeat;
   color: #000000;
   height: 18px;
   width: 21px;
