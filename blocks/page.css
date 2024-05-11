@@ -11,21 +11,21 @@
 
 .page__section {
   position: relative;
-  padding-bottom: 41px;
-}
-
-.header {
-  max-height: 74px;
   max-width: 880px;
   width: 100%;
 }
 
+.header {
+  max-height: 74px;
+  border-bottom: 1px solid #545454;
+  padding-bottom: 41px;
+}
+
 .header__logo {
-  color: white;
+  color: #ffffff;
   width: 173px;
   height: 33px;
   margin-top: 45px;
-  border-bottom: 1px solid #ffff;
 }
 
 .profile {
@@ -50,6 +50,7 @@
     "description description";
   grid-template-columns: minmax(auto, 373px) auto;
   align-items: center;
+  max-width: 373px;
 }
 
 .profile__title {
@@ -66,6 +67,7 @@
   height: 24px;
   width: 24px;
   grid-area: button;
+  border: 1px solid #ffffff;
 }
 
 .profile__description {
@@ -82,4 +84,19 @@
   width: 150px;
   height: 50px;
   margin-left: auto;
+  margin-right: 200px;
+  border: 2px solid #ffffff;
+}
+
+.card__list {
+  display: grid;
+  list-style-type: none;
+}
+
+.card {
+}
+
+.card__image {
+  width: 282px;
+  height: 282px;
 }
