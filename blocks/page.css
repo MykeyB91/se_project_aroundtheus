@@ -90,24 +90,26 @@
 
 .card__list {
   display: grid;
-  list-style-type: none;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
 }
 
 .card__list {
   display: grid;
   justify-content: column;
   grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 17px;
+  grid-gap: 20px 17px;
   margin-top: 51px;
+  padding: 0px;
 }
 
 .card__image {
   width: 282px;
   height: 282px;
-  object-fit: cover;
   border-radius: 10px 10px 0px 0px;
 }
 
@@ -121,7 +123,7 @@
   padding-right: 20px;
   align-items: center;
   justify-content: space-between;
-  border-radius: 10px;
+  border-radius: 0px 0px 10px 10px;
 }
 
 .card__like-button {
