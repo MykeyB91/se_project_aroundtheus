@@ -35,6 +35,8 @@
   display: flex;
   align-items: center;
   padding-top: 40px;
+  padding-bottom: 51px;
+  max-width: 880px;
 }
 
 .profile__avatar {
@@ -62,11 +64,11 @@
   font-size: 42px;
   line-height: 1.2;
   grid-area: title;
-  margin: 22px 0 16px;
+  margin: 22px 0 0;
 }
 
 .profile__edit-button {
-  background: transparent url(../images/Real\ Edit\ button.svg) center no-repeat;
+  background: transparent url(../images/edit.svg) center no-repeat;
   height: 24px;
   width: 24px;
   grid-area: button;
@@ -77,17 +79,16 @@
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 1.2;
   grid-area: description;
   margin: 0;
 }
 
 .profile__add-button {
-  background: transparent url(../images/Real\ Add\ Button.svg) center no-repeat;
+  background: transparent url(../images/plus\ button.svg) center no-repeat;
   width: 150px;
   height: 50px;
   margin-left: auto;
-
   border: 2px solid #ffffff;
 }
 
@@ -99,7 +100,6 @@
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  margin-top: 51px;
 }
 
 .card__list {
@@ -133,10 +133,63 @@
   line-height: 1.2px;
 }
 
+.card__title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  line-height: 1.2px;
+}
+
 .card__like-button {
-  background: transparent url(../images/Vector.svg) center no-repeat;
+  background: transparent url(../images/Like\ button.svg) center no-repeat;
   color: #000000;
   height: 18px;
   width: 21px;
   margin-left: auto;
+  border: none;
+}
+
+.footer {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2px;
+  color: #545454;
+  padding-top: 67px;
+  padding-bottom: 60px;
+
+  max-width: 880px;
+}
+
+.footer__copyright {
+  margin: 0;
+}
+
+@media screen and (max-width: 620px) {
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .profile__title {
+    padding-right: 62px;
+    padding-left: 62px;
+  }
+
+  .profile__description {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile__add-button {
+    margin: 0;
+    width: 100%;
+  }
 }
