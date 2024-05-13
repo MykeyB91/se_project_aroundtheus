@@ -5,8 +5,8 @@
 }
 
 .page__content {
-  padding-left: 200px;
-  padding-right: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -16,6 +16,7 @@
   position: relative;
   max-width: 880px;
   width: 100%;
+  margin: 0 auto;
 }
 
 .header {
@@ -64,7 +65,7 @@
   font-size: 42px;
   line-height: 1.2;
   grid-area: title;
-  margin: 22px 0 0;
+  margin: 0;
 }
 
 .profile__edit-button {
@@ -73,6 +74,7 @@
   width: 24px;
   grid-area: button;
   border: 1px solid #ffffff;
+  align-self: center;
 }
 
 .profile__description {
@@ -90,25 +92,21 @@
   height: 50px;
   margin-left: auto;
   border: 2px solid #ffffff;
+  align-self: center;
 }
 
 .card__list {
   display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 282px);
+  grid-gap: 20px 17px;
+  padding: 0px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   list-style-type: none;
-}
-
-.card__list {
-  display: grid;
-  justify-content: column;
-  grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 17px;
-  padding: 0px;
-  margin: 0;
 }
 
 .card__image {
@@ -156,7 +154,6 @@
   color: #545454;
   padding-top: 67px;
   padding-bottom: 60px;
-
   max-width: 880px;
 }
 
@@ -165,8 +162,23 @@
 }
 
 @media screen and (max-width: 800px) {
+  .page__content {
+    align-items: center;
+  }
+
+  .header {
+    max-width: 282px;
+  }
+
   .profile {
+    max-width: 282px;
     flex-direction: column;
+    padding: 0;
+  }
+
+  .profile__avatar {
+    margin-top: 42px;
+    margin-bottom: 30px;
   }
 
   .profile__info {
@@ -177,50 +189,79 @@
   }
 
   .profile__title {
-    padding-right: 62px;
-    padding-left: 62px;
     font-size: 22px;
     line-height: 1.2px;
     text-align: center;
+    margin: 0;
   }
 
   .profile__edit-button {
     width: 18px;
     height: 18px;
-    justify-content: flex-start;
   }
 
   .profile__description {
     width: 100%;
     text-align: center;
-    margin-bottom: 36px;
+    padding-bottom: 36px;
   }
 
   .profile__add-button {
     margin: 0;
-    width: 100%;
+    padding: 0;
+    width: 282px;
+    margin-bottom: 16px;
   }
 
   .card__list {
-    text-align: center;
-    width: 100%;
+    max-width: 282px;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    grid-gap: 20px;
+  }
+
+  .card__description {
+    max-width: 282px;
   }
 }
 
 @media screen and (max-width: 620px) {
+  .page__content {
+    align-items: center;
+  }
+
+  .header {
+    max-width: 282px;
+  }
+
   .profile {
     flex-direction: column;
+    max-width: 282px;
+    padding: 0;
+  }
+
+  .profile__avatar {
+    margin-top: 42px;
+    margin-bottom: 30px;
   }
 
   .profile__info {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    margin: 0;
   }
 
   .profile__title {
-    padding-right: 62px;
-    padding-left: 62px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.2px;
+    margin: 0;
+  }
+
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
   }
 
   .profile__description {
@@ -230,11 +271,21 @@
 
   .profile__add-button {
     margin: 0;
-    width: 100%;
+    padding: 0;
+    width: 282px;
+    margin-bottom: 16px;
   }
 
   .card {
-    align-items: center;
-    width: 100%;
+  }
+
+  .card__list {
+    max-width: 282px;
+    grid-gap: 20px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .card__description {
+    max-width: 282px;
   }
 }
