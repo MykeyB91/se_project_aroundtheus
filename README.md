@@ -40,8 +40,10 @@ To achieve the desired design Flex and Grid layouts were applied to various sect
 
 Last but not least, this design uses media queries. Along with using 'Flex and Grid' layouts in our design, we also used 'Media Queries'. Media queries are breakpoints used in the design to help our layout respond to any device. This is a crucial and essential part of any responsive web-design. Understanding this function will undoubtedly provide an overall quality experience to any developer or user.
 
-I hope this overview provides enough details on the project. Below is a link you can use to access this projects' file.
+I hope this overview provides enough details on the project. Below is my website along with a video of describing the project.
 
-git@github.com:MykeyB91/se_project_aroundtheus.git
+ https://mykeyb91.github.io/se_project_aroundtheus/
+
+ https://youtu.be/SxlVb-vZN0c
 
 Good luck, have fun and HAPPY coding!
