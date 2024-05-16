@@ -117,9 +117,6 @@
     max-width: 282px;
   }
 
-  .card {
-  }
-
   .card__list {
     max-width: 282px;
     grid-gap: 20px;
