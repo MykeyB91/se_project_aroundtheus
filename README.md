@@ -46,4 +46,4 @@ I hope this overview provides enough details on the project. Below is my website
 
  https://youtu.be/SxlVb-vZN0c
 
-Good luck, have fun and HAPPY coding!
+Have fun and HAPPY coding!
