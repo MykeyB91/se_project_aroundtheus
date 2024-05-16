@@ -12,7 +12,7 @@
 
 **Intro**
 
-In this project I was instructed to create a responsive web-design. In order to achieve this I needed to use various technologies and tools to reach the requirements. From 'Figma' to 'HTML5' along with various layout techniques.
+In this project I was instructed to create a responsive web-design. In order to achieve this I needed to use various technologies and tools to reach these requirements. From 'Figma' to 'HTML5' along with various layout techniques.
 
 **Figma**
 
