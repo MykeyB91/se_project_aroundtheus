@@ -102,6 +102,7 @@
   .profile__edit-button {
     width: 18px;
     height: 18px;
+    justify-self: center;
   }
 
   .profile__description {
@@ -148,6 +149,7 @@
     width: 18px;
     height: 18px;
     margin: 0;
+    padding: 0;
     gap: 10px;
     max-width: 282px;
   }
@@ -162,7 +164,6 @@
     margin: 36px 0 36px;
     padding: 0;
     width: 100%;
-
     max-width: 282px;
   }
 }
