@@ -6,7 +6,7 @@
 
 .page__content {
   padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -22,5 +22,11 @@
 @media screen and (max-width: 775px) {
   .page__content {
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .page__content {
+    padding: 0;
   }
 }
