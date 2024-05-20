@@ -122,8 +122,6 @@
 
 @media screen and (max-width: 320px) {
   .profile {
-    display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     max-width: 282px;
     padding: 0;
@@ -133,9 +131,13 @@
   .profile__avatar {
     margin: 42px 0 30px;
     max-width: 282px;
+    margin-right: 0;
   }
 
   .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 0;
     max-width: 282px;
   }

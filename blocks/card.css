@@ -48,28 +48,3 @@
 .card__like-button:hover {
   opacity: 0.5;
 }
-
-@media screen and (max-width: 775px) {
-  .card__description {
-    max-width: 282px;
-    margin: 0;
-  }
-
-  .card__title {
-    max-width: 282px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .card__description {
-    max-width: 282px;
-    margin: 0;
-  }
-
-  .card__title {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 200px;
-  }
-}
