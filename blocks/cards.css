@@ -1,0 +1,30 @@
+.cards__list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 282px);
+  grid-gap: 20px 17px;
+  padding: 0px;
+  margin: 0;
+}
+
+@media screen and (max-width: 775px) {
+  .cards__list {
+    max-width: 282px;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    grid-gap: 20px 17px;
+    margin: 0;
+    margin-top: 36px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .cards__list {
+    max-width: 282px;
+    justify-content: center;
+    grid-gap: 20px;
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+    padding: 20px 0 20px;
+  }
+}

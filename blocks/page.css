@@ -24,9 +24,3 @@
     align-items: center;
   }
 }
-
-@media screen and (max-width: 320px) {
-  .page__content {
-    align-items: center;
-  }
-}
