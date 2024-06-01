@@ -71,3 +71,13 @@
   margin-top: 48px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 320px) {
+  .modal {
+    align-items: center;
+  }
+
+  .modal__container {
+    max-width: 282px;
+  }
+}
