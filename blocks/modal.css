@@ -6,7 +6,7 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: flex;
+  display: none;
   padding: 0 19px;
 }
 
@@ -18,6 +18,10 @@
   position: relative;
   display: flex;
   flex-flow: column wrap;
+}
+
+.modal__opened {
+  display: flex;
 }
 
 .modal__close {
@@ -50,14 +54,14 @@
   padding-bottom: 24px;
 }
 
-.modal__form-input {
+.modal__input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 14px;
   margin-top: 30px;
 }
 
-.modal__form-input::placeholder {
+.modal__input::placeholder {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-weight: 400px;
   font-size: 14px;
