@@ -79,15 +79,33 @@
   background-color: #000000;
   border-radius: 2px;
   text-decoration: #fff;
-  width: 358px;
+  max-width: 358px;
   height: 50px;
   margin-top: 48px;
   cursor: pointer;
 }
 
+.modal__button:hover {
+  opacity: 0.6;
+}
+
 @media screen and (max-width: 320px) {
-  .modal {
-    align-items: center;
+  .modal__container {
     max-width: 282px;
+    width: 100%;
+    margin: auto;
+    padding-right: 19px;
+  }
+
+  .modal__close {
+    height: 26px;
+    width: 26px;
+    right: 19px;
+    bottom: calc(100% + 5px);
+    left: calc(100% + 5px);
+  }
+
+  .modal__heading {
+    margin-bottom: 21px;
   }
 }
