@@ -54,6 +54,11 @@
   padding-bottom: 24px;
 }
 
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
 .modal__input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
