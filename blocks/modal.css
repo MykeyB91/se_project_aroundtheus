@@ -102,17 +102,23 @@
     margin: auto;
     padding-right: 19px;
     padding-left: 19px;
+    position: relative;
+    top: 10px;
   }
 
   .modal__close {
     height: 26px;
     width: 26px;
-    bottom: 91px;
-    right: 265px;
+    bottom: calc(100% + 5px);
+    left: unset;
+    right: 0;
+    position: absolute;
+    margin-bottom: 14px;
   }
 
   .modal__button {
     font-size: 14px;
+    margin: 45px 0 0;
   }
 
   .modal__heading {
