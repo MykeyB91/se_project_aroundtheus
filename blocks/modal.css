@@ -101,8 +101,8 @@
     margin: auto;
     padding-right: 19px;
     padding-left: 19px;
-    padding-bottom: 0;
-    height: 282px;
+    padding-bottom: 25px;
+    padding-top: 25px;
   }
 
   .modal__close {
