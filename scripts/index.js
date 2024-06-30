@@ -97,10 +97,7 @@ function handleProfileAddSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  const cardElement = getCardElement({
-    name,
-    link,
-  });
+  renderCard({ name, link }, cardListEl);
   closePopup(profileAddModal);
 }
 
