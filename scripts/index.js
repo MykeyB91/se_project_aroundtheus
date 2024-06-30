@@ -70,6 +70,7 @@ function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
 }
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
@@ -82,8 +83,8 @@ function getCardElement(cardData) {
   });
 
   deleteButton.addEventListener("click", () => {
-    deleteButton.classList.toggle("card__delete-button");
-    remove(cardElement);
+    deleteButton.classList(".card__delete-button");
+    cardElement.remove();
   });
 
   cardImageEl.src = cardData.link;
@@ -135,10 +136,3 @@ profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 //forEach
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl)); //{
-//const cardElement = getCardElement(cardData);
-//cardListEl.append(cardElement);
-//});
-
-//initialCards.forEach((cardData) => {
-//cardsWrap.prepend(getCardElement(cardData));
-//});
