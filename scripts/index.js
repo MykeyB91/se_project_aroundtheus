@@ -48,6 +48,9 @@ const profileAddModal = document.querySelector("#add-modal");
 const profileAddButton = document.querySelector(".profile__add-button");
 const profileAddClosedButton = profileAddModal.querySelector(".modal__close");
 const profileAddForm = profileAddModal.querySelector(".modal__form");
+const previewImageModal = document.querySelector("#image-modal");
+const previewImage = document.querySelector(".modal__image");
+const previewImageClosedButton = document.querySelector(".modal__button");
 
 //Form Data
 const nameInput = profileEditForm.querySelector("modal__input_type_name");
@@ -59,11 +62,13 @@ const cardUrlInput = profileAddForm.querySelector(".modal__input_type_link");
 function closePopup(popup) {
   profileEditModal.classList.remove("modal_opened");
   profileAddModal.classList.remove("modal_opened");
+  previewImageModal.classList.remove("modal_opened");
 }
 
 function openPopup(popup) {
   profileEditModal.classList.add("popup_is-opened");
   profileAddModal.classList.add("popup_is-opened");
+  previewImageModal.classList.add("popup_is-opened");
 }
 
 function renderCard(cardData) {
@@ -83,8 +88,11 @@ function getCardElement(cardData) {
   });
 
   deleteButton.addEventListener("click", () => {
-    deleteButton.classList(".card__delete-button");
     cardElement.remove();
+  });
+
+  cardImageEl.addEventListener("click", () => {
+    cardElement;
   });
 
   cardImageEl.src = cardData.link;
@@ -108,7 +116,15 @@ function handleProfileAddSubmit(e) {
   closePopup(profileAddModal);
 }
 
-//EventListeners
+function handleImageModal(e) {
+  e.preventDefault();
+
+  closePopup(previewImageModal);
+}
+
+//EventListeners Below
+
+//Edit
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
@@ -121,10 +137,8 @@ profileEditClosedButton.addEventListener("click", () => {
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-//Add new button/Eventlistener
+//Add
 profileAddButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
   profileAddModal.classList.add("modal_opened");
 });
 
@@ -134,5 +148,14 @@ profileAddClosedButton.addEventListener("click", () => {
 
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
-//forEach
-initialCards.forEach((cardData) => renderCard(cardData, cardListEl)); //{
+//Image
+previewImage.addEventListener("click", () => {
+  previewImageModal.classList.add("modal_opened");
+});
+
+previewImageClosedButton.addEventListener("click", () => {
+  closePopup();
+});
+
+//forEach()
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
