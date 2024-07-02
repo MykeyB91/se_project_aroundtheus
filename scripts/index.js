@@ -50,7 +50,8 @@ const profileAddClosedButton = profileAddModal.querySelector(".modal__close");
 const profileAddForm = profileAddModal.querySelector(".modal__form");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImage = document.querySelector(".modal__preview-image");
-const previewImageClosedButton = document.querySelector(".modal__close");
+const previewImageClosedButton =
+  previewImageModal.querySelector(".modal__close");
 
 //Form Data
 const nameInput = profileEditForm.querySelector("modal__input_type_name");
@@ -95,6 +96,7 @@ function getCardElement(cardData) {
     previewImageModal.classList.add("modal_opened");
     previewImage.src = cardData.link;
     previewImage.alt = cardData.link;
+    return cardImageEl;
   });
 
   cardImageEl.src = cardData.link;
