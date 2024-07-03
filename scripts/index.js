@@ -65,14 +65,14 @@ function closePopup(popup) {
   popup.classList.remove("modal_opened");
   //profileEditModal.classList.remove("modal_opened");
   //profileAddModal.classList.remove("modal_opened");
-  // previewImageModal.classList.remove("modal_opened");
+  //previewImageModal.classList.remove("modal_opened");
 }
 
 function openPopup(popup) {
   popup.classList.add("modal_opened");
-  // profileEditModal.classList.add("popup_is-opened");
-  //profileAddModal.classList.add("popup_is-opened");
-  //previewImageModal.classList.add("popup_is-opened");
+  //profileEditModal.classList.add("modal_opened");
+  //profileAddModal.classList.add("modal_opened");
+  //previewImageModal.classList.add("modal_opened");
 }
 
 function renderCard(cardData) {
@@ -97,8 +97,10 @@ function getCardElement(cardData) {
 
   cardImageEl.addEventListener("click", () => {
     openPopup(previewImageModal);
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
     previewImageCaption.src = cardData.link;
-    previewImageCaption.alt = cardData.link;
+    previewImageCaption.alt = cardData.name;
     return previewImageCaption;
   });
 
@@ -113,7 +115,7 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
-  document.querySelector("#edit-modal").reset();
+  document.getElementById("#edit-modal").reset();
 }
 
 function handleProfileAddSubmit(e) {
@@ -122,7 +124,7 @@ function handleProfileAddSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
   closePopup(profileAddModal);
-  document.querySelector("#add-modal");
+  document.getElementById("#add-modal").reset();
 }
 
 function handleImageClick(e) {
@@ -159,6 +161,8 @@ profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 //Image
 previewImage.addEventListener("click", () => {
   previewImageModal.classList.add("modal_opened");
+  previewImageCaption.src = cardData.link;
+  previewImageCaption.alt = cardData.name;
 });
 
 previewImageClosedButton.addEventListener("click", () => {
