@@ -109,6 +109,7 @@
   max-height: 540px;
   margin: auto;
   padding: 0;
+  position: relative;
 }
 
 .modal__preview-image {
@@ -126,13 +127,14 @@
   font-weight: 400px;
   font-size: 12px;
   line-height: 1;
-  margin: auto;
+  margin: 0;
   padding: 0;
   color: #ffffff;
   max-width: 291px;
   max-height: 12px;
-  top: -640px;
-  left: -424px;
+  top: calc(100% + 10px);
+  right: unset;
+  position: absolute;
 }
 
 @media screen and (max-width: 320px) {
@@ -166,6 +168,10 @@
     font-size: 18px;
   }
 
+  .modal__container-image {
+    position: relative;
+  }
+
   .modal__preview-image {
     max-width: 240px;
     height: 299px;
@@ -174,5 +180,11 @@
   .modal__close-preview {
     top: 0;
     right: -4px;
+  }
+
+  .modal__image-caption {
+    position: absolute;
+    top: calc(100% + -20px);
+    right: unset;
   }
 }
