@@ -121,6 +121,20 @@
   cursor: pointer;
 }
 
+.modal__image-caption {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 400px;
+  font-size: 12px;
+  line-height: 1;
+  margin: auto;
+  padding: 0;
+  color: #ffffff;
+  max-width: 291px;
+  max-height: 12px;
+  top: -640px;
+  left: -424px;
+}
+
 @media screen and (max-width: 320px) {
   .modal__container {
     max-width: 282px;
@@ -159,5 +173,6 @@
 
   .modal__close-preview {
     top: 0;
+    right: -4px;
   }
 }
