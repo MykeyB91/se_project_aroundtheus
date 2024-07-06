@@ -40,14 +40,14 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-const profileEditForm = profileEditModal.querySelector(".modal__form");
+const profileEditForm = document.querySelector("#profileEditForm");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const profileAddModal = document.querySelector("#add-modal");
 const profileAddButton = document.querySelector(".profile__add-button");
 const profileAddClosedButton = profileAddModal.querySelector(".modal__close");
-const profileAddForm = profileAddModal.querySelector(".modal__form");
+const profileAddForm = document.querySelector("#profileAddForm");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImage = document.querySelector(".modal__preview-image");
 const previewImageClosedButton =
@@ -93,8 +93,6 @@ function getCardElement(cardData) {
     openPopup(previewImageModal);
     previewImage.src = cardData.link;
     previewImage.alt = cardData.name;
-    previewImageCaption.src = cardData.link;
-    previewImageCaption.alt = cardData.name;
     previewImageCaption.textContent = cardData.name;
     return previewImageCaption;
   });
@@ -110,7 +108,7 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
-  e.event.reset(profileAddForm);
+  document.getElementById("#profileEditForm").reset();
 }
 
 function handleProfileAddSubmit(e) {
@@ -119,7 +117,7 @@ function handleProfileAddSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
   closePopup(profileAddModal);
-  e.event.reset(profileAddForm);
+  document.getElementsById("#profileAddForm").reset();
 }
 
 function handleImageClick(e) {
@@ -133,7 +131,7 @@ function handleImageClick(e) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
+  openPopup(profileEditModal);
 });
 
 profileEditClosedButton.addEventListener("click", () => {
@@ -144,7 +142,7 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 //Add
 profileAddButton.addEventListener("click", () => {
-  profileAddModal.classList.add("modal_opened");
+  openPopup(profileAddModal);
 });
 
 profileAddClosedButton.addEventListener("click", () => {
@@ -154,11 +152,12 @@ profileAddClosedButton.addEventListener("click", () => {
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 //Image
-previewImage.addEventListener("click", () => {
-  previewImageModal.classList.add("modal_opened");
-  previewImageCaption.src = cardData.link;
-  previewImageCaption.alt = cardData.name;
-});
+//openPopup(previewImageModal);
+//previewImage.addEventListener("click", () => {
+//previewImageModal.classList.add("modal_opened");
+//previewImageCaption.src = cardData.link;
+// previewImageCaption.alt = cardData.name;
+//});
 
 previewImageClosedButton.addEventListener("click", () => {
   closePopup(previewImageModal);
