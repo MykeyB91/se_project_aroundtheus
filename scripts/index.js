@@ -152,13 +152,6 @@ profileAddClosedButton.addEventListener("click", () => {
 profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 //Image
-//openPopup(previewImageModal);
-//previewImage.addEventListener("click", () => {
-//previewImageModal.classList.add("modal_opened");
-//previewImageCaption.src = cardData.link;
-// previewImageCaption.alt = cardData.name;
-//});
-
 previewImageClosedButton.addEventListener("click", () => {
   closePopup(previewImageModal);
 });
