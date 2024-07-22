@@ -85,6 +85,16 @@
   color: #000;
 }
 
+.modal__error {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  padding: 0;
+  padding-top: 13px;
+  margin: 0;
+}
+
 .modal__button {
   color: #fff;
   background-color: #000000;

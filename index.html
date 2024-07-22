@@ -55,20 +55,30 @@
           <input
             type="text"
             name="title"
-            placeholder="Jacques Cousteau"
+            placeholder="Name"
             class="modal__input modal__input_type_name"
             id="profile-title-input"
+            minlength="2"
+            maxlength="40"
             required
           />
+          <span class="modal__error" id="profile-title-input-error"
+            >Please fill out this field.</span
+          >
 
           <input
             type="text"
             name="description"
-            placeholder="Explorer"
+            placeholder="Description"
             class="modal__input modal__input_type_description"
             id="profile-description-input"
+            minlength="2"
+            maxlength="200"
             required
           />
+          <span class="modal__error" id="profile-description-input-error"
+            >Please fill out this field.</span
+          >
 
           <button type="submit" class="modal__button">Save</button>
         </form>
@@ -86,16 +96,26 @@
             name="title"
             placeholder="Title"
             class="modal__input modal__input_type_title"
+            id="add-title-input"
+            minlength="1"
+            maxlength="30"
             required
           />
+          <span class="modal__error" id="add-title-input-error"
+            >Please fill out this field.</span
+          >
 
           <input
             type="url"
             name="link"
             placeholder="Image link"
             class="modal__input modal__input_type_link"
+            id="add-url-input"
             required
           />
+          <span class="modal__error" id="add-title-input-error"
+            >Please enter web address.</span
+          >
 
           <button type="submit" class="modal__button">Save</button>
         </form>
