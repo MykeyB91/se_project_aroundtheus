@@ -77,6 +77,10 @@
   margin-top: 30px;
 }
 
+.modal__input_type_error:invalid {
+  border-bottom: 1px solid #ff0000;
+}
+
 .modal__input::placeholder {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-weight: 400px;
@@ -100,15 +104,6 @@
   visibility: visible;
 }
 
-.modal__input_type_error {
-  border-bottom: 1px solid #ff0000;
-}
-
-.modal__button_disabled {
-  border: 1px;
-  border-radius: 2px;
-}
-
 .modal__button {
   color: #fff;
   background-color: #000000;
@@ -119,6 +114,12 @@
   margin: 48px 0 0;
   padding: 0;
   cursor: pointer;
+}
+
+.modal__button_disabled {
+  border: 1px;
+  border-radius: 2px;
+  background-color: gray;
 }
 
 .modal__button:hover {

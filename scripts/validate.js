@@ -24,20 +24,15 @@ function checkInputValidity(formEl, inputEl, options) {
 }
 
 function toggleButtonState(inputElms, submitButton, { inactiveButtonClass }) {
-  let foundInvalid = false;
+  const isFormInvalid = inputElms.some((inputEl) => !inputEl.validity.valid);
 
-  inputElms.forEach((inputEl) => {
-    if (!inputEl.validity.valid) {
-      foundInvalid = true;
-    }
-  });
-
-  if (foundInvalid) {
+  if (isFormInvalid) {
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
+  } else {
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
   }
-  submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
 }
 
 function setEventListener(formEl, options) {
