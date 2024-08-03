@@ -1,6 +1,19 @@
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
+function closeModal() {
+  const modal = document.querySelector("modal");
+  modal.classList.remove("modal_opened");
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
+
+  const overlay = document.querySelector("overlay");
+  overlay.addEventListener("click", closeModal);
+}
+
 function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
   inputEl.classList.add(inputErrorClass);
