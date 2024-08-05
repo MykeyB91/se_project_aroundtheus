@@ -34,7 +34,16 @@
   transition-delay: 0s;
 }
 
-.modal__close {
+.modal__overlay {
+  position: fixed;
+  z-index: 10;
+}
+
+.modal__container {
+  position: relative;
+  z-index: 20;
+}
+.modal .modal__close {
   border: none;
   background-color: transparent;
   position: absolute;

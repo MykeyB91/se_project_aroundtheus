@@ -1,18 +1,64 @@
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
-function closeModal() {
-  const modal = document.querySelector("modal");
-  modal.classList.remove("modal_opened");
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeModal();
-    }
-  });
-
-  const overlay = document.querySelector("overlay");
-  overlay.addEventListener("click", closeModal);
+function closeModal(modal) {
+  if (modal) {
+    modal.classList.remove("modal_opened");
+  }
 }
+
+function openModal(modal) {
+  if (modal) {
+    modal.classList.add("modal_opened");
+  }
+}
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   console.log("DOM fully loaded and parsed");
+
+//   document
+//     .querySelector("#open-profile-modal-btn")
+//     .addEventListener("click", () => {
+//       const profileModal = document.querySelector("#edit-modal");
+//       openModal(profileModal);
+//     });
+
+//   document
+//     .querySelector("#open-add-modal-btn")
+//     .addEventListener("click", () => {
+//       const addModal = document.querySelector("#add-modal");
+//       openModal(addModal);
+//     });
+// });
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    const openModals = document.querySelectorAll(".modal_opened");
+    openModals.forEach((modal) => closeModal(modal));
+  }
+});
+
+const overlays = document.querySelectorAll(".modal__overlay");
+overlays.forEach((overlay) => {
+  overlay.addEventListener("click", () => {
+    const modal = overlay.closest(".modal");
+    closeModal(modal);
+  });
+});
+
+const modalContents = document.querySelectorAll(".modal__content");
+modalContents.forEach((content) => {
+  content.addEventListener("click", (evt) => {
+    evt.stopPropagation(); // Prevent clicks inside modal from bubbling up to overlay
+  });
+});
+
+// const forms = document.querySelectorAll(".modal__form");
+// forms.forEach((form) => {
+//   form.addEventListener("submit", (evt) => {
+//     evt.preventDefault();
+//   });
+// });
 
 function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
