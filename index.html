@@ -47,7 +47,7 @@
     </div>
 
     <!-- Edit modal-->
-    <div class="modal modal__overlay modal_opened" id="edit-modal">
+    <div class="modal modal__overlay" id="edit-modal">
       <div class="modal__container modal__content">
         <button type="button" class="modal__close"></button>
         <h2 class="modal__heading">Edit profile</h2>
@@ -56,7 +56,7 @@
             type="text"
             name="title"
             placeholder="Name"
-            class="modal__input modal__input_type_error modal__input_type_name modal__error_visible"
+            class="modal__input modal__input_type_error modal__input_type_name modal__error modal__error-visible"
             id="profile-title-input"
             minlength="2"
             maxlength="40"
@@ -70,7 +70,7 @@
             type="text"
             name="description"
             placeholder="Description"
-            class="modal__input modal__input_type_error modal__input_type_description modal__error_visible"
+            class="modal__input modal__input_type_error modal__input_type_description modal__error modal__error-visible"
             id="profile-description-input"
             minlength="2"
             maxlength="200"
@@ -92,7 +92,7 @@
     </div>
 
     <!-- Add card modal -->
-    <div class="modal modal__overlay modal_opened" id="add-modal">
+    <div class="modal modal__overlay" id="add-modal">
       <div class="modal__container modal__content">
         <button type="button" class="modal__close"></button>
         <h2 class="modal__heading">New Place</h2>
@@ -101,7 +101,7 @@
             type="text"
             name="title"
             placeholder="Title"
-            class="modal__input modal__input_type_title modal__error_visible"
+            class="modal__input modal__input_type_title modal__error modal__error-visible"
             id="add-title-input"
             minlength="1"
             maxlength="30"
@@ -115,7 +115,7 @@
             type="url"
             name="link"
             placeholder="Image link"
-            class="modal__input modal__input_type_link modal__error_visible"
+            class="modal__input modal__input_type_link modal__error modal__error-visible"
             id="add-url-input"
             required
           />
@@ -135,7 +135,7 @@
     </div>
 
     <!--Preview Image-->
-    <div class="modal modal__overlay modal_opened" id="preview-image-modal">
+    <div class="modal modal__overlay" id="preview-image-modal">
       <div class="modal__container modal__container-image modal__content">
         <button
           type="button"

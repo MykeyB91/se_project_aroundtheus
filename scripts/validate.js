@@ -1,18 +1,6 @@
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
-function closeModal(modal) {
-  if (modal) {
-    modal.classList.remove("modal_opened");
-  }
-}
-
-function openModal(modal) {
-  if (modal) {
-    modal.classList.add("modal_opened");
-  }
-}
-
 // document.addEventListener("DOMContentLoaded", () => {
 //   console.log("DOM fully loaded and parsed");
 

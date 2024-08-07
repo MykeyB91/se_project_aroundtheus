@@ -61,6 +61,18 @@ const cardTitleInput = profileAddForm.querySelector(".modal__input_type_title");
 const cardUrlInput = profileAddForm.querySelector(".modal__input_type_link");
 
 //Functions
+function closeModal(modal) {
+  if (modal) {
+    modal.classList.remove("modal_opened");
+  }
+}
+
+function openModal(modal) {
+  if (modal) {
+    modal.classList.add("modal_opened");
+  }
+}
+
 function closePopup(popup) {
   popup.classList.remove("modal_opened");
 }
@@ -108,7 +120,7 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
-  document.getElementById("profileEditForm").reset();
+  document.getElementById("#profileEditForm").reset();
 }
 
 function handleProfileAddSubmit(e) {
@@ -117,7 +129,7 @@ function handleProfileAddSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
   closePopup(profileAddModal);
-  document.getElementById("profileAddForm").reset();
+  document.getElementById("#profileAddForm").reset();
 }
 
 function handleImageClick(e) {
