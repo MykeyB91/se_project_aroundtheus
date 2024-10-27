@@ -43,12 +43,12 @@
   position: relative;
   z-index: 20;
 }
-.modal .modal__close {
+.modal__close {
   border: none;
   background-color: transparent;
   position: absolute;
-  bottom: calc(100% + 5px);
-  left: calc(100% + 5px);
+  bottom: calc(100% + 35px);
+  left: calc(100% + 1px);
   background-image: url(../images/close.svg);
   width: 40px;
   height: 40px;
@@ -166,71 +166,58 @@
   color: #ffffff;
   max-width: 291px;
   max-height: 12px;
-  top: calc(100% + 10px);
+  top: calc(100% + 40px);
   right: unset;
   position: absolute;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 520px) {
   .modal__container {
-    max-width: 282px;
-
-    width: 100%;
-
-    margin: auto;
+    position: relative;
+    /*max-width: 282px;*/
+    width: 282px;
 
     padding-right: 19px;
-
     padding-left: 19px;
-
     padding-bottom: 25px;
-
     padding-top: 25px;
   }
 
   .modal__close {
-    height: 26px;
-
-    width: 26px;
-
-    bottom: calc(100% + 5px);
-
-    left: unset;
-
-    right: 265px;
-
     position: absolute;
-
-    margin-bottom: 14px;
+    height: 26px;
+    width: 26px;
+    top: -40px;
+    left: 245px;
   }
 
   .modal__button {
     font-size: 14px;
-
     margin: 45px 0 0;
   }
 
   .modal__heading {
     margin-bottom: 21px;
-
     font-size: 18px;
   }
 
   .modal__preview-image {
     max-width: 240px;
-
     height: 299px;
+    top: 136px;
+    left: 40px;
   }
 
   .modal__close-preview {
-    top: 0;
-
-    right: -4px;
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    top: -2px;
+    left: 260px;
   }
 
   .modal__image-caption {
     top: calc(100% + -20px);
-
-    right: unset;
+    left: 20px;
   }
 }

@@ -170,3 +170,37 @@ previewImageClosedButton.addEventListener("click", () => {
 
 //forEach()
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+//Escape and Overlay functions & eventListeners
+function handleEscKey(evt) {
+  if (evt.key === "Escape") console.log("keydown event fired");
+  {
+    const openModals = document.querySelectorAll(".modal_opened");
+    openModals.forEach((modal) => closeModal(modal));
+  }
+}
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscKey);
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscKey);
+}
+
+const overlays = document.querySelectorAll(".modal__overlay");
+overlays.forEach((overlay) => {
+  overlay.addEventListener("click", () => {
+    const modal = overlay.closest(".modal");
+    closeModal(modal);
+  });
+});
+
+const modalContents = document.querySelectorAll(".modal__content");
+modalContents.forEach((content) => {
+  content.addEventListener("click", (evt) => {
+    evt.stopPropagation(); // Prevent clicks inside modal from bubbling up to overlay
+  });
+});

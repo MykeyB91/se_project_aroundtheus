@@ -19,28 +19,6 @@
 //     });
 // });
 
-document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    const openModals = document.querySelectorAll(".modal_opened");
-    openModals.forEach((modal) => closeModal(modal));
-  }
-});
-
-const overlays = document.querySelectorAll(".modal__overlay");
-overlays.forEach((overlay) => {
-  overlay.addEventListener("click", () => {
-    const modal = overlay.closest(".modal");
-    closeModal(modal);
-  });
-});
-
-const modalContents = document.querySelectorAll(".modal__content");
-modalContents.forEach((content) => {
-  content.addEventListener("click", (evt) => {
-    evt.stopPropagation(); // Prevent clicks inside modal from bubbling up to overlay
-  });
-});
-
 // const forms = document.querySelectorAll(".modal__form");
 // forms.forEach((form) => {
 //   form.addEventListener("submit", (evt) => {
@@ -86,9 +64,9 @@ function setEventListener(formEl, options) {
   const { inputSelector } = options;
   const inputElms = [...formEl.querySelectorAll(inputSelector)];
   const submitButton = formEl.querySelector(options.submitButtonSelector);
-  const buttonDisabled = formEl.querySelector(options.inactiveButtonClass);
   const inputError = formEl.querySelector(options.inputErrorClass);
   const modalError = formEl.querySelector(options.errorClass);
+
   inputElms.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEl, inputEl, options);
