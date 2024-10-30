@@ -47,7 +47,7 @@
   border: none;
   background-color: transparent;
   position: absolute;
-  bottom: calc(100% + 35px);
+  bottom: calc(100% + 3px);
   left: calc(100% + 1px);
   background-image: url(../images/close.svg);
   width: 40px;
@@ -109,7 +109,7 @@
   margin: 0;
 }
 
-.modal__error-visible {
+.modal__error_visible {
   visibility: visible;
 }
 
@@ -154,6 +154,10 @@
   padding: 0;
   margin: 0;
   cursor: pointer;
+}
+
+.modal__close-preview {
+  bottom: calc(100% + 35px);
 }
 
 .modal__image-caption {
