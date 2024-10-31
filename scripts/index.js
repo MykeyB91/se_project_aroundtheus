@@ -101,7 +101,7 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
-  document.getElementById("#profileEditForm").reset();
+  document.getElementById("profileEditForm").reset();
 }
 
 function handleProfileAddSubmit(e) {
@@ -110,7 +110,7 @@ function handleProfileAddSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
   closeModal(profileAddModal);
-  document.getElementById("#profileAddForm").reset();
+  document.getElementById("profileAddForm").reset();
 }
 
 function handleImageClick(e) {

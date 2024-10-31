@@ -79,7 +79,8 @@
 
 .modal__input {
   font-size: 14px;
-  line-height: 17px;
+  height: 17px;
+  width: 358px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 14px;
@@ -156,8 +157,8 @@
   cursor: pointer;
 }
 
-.modal__close-preview {
-  bottom: calc(100% + 35px);
+.modal__close_preview {
+  bottom: calc(100% + 15px);
 }
 
 .modal__image-caption {
@@ -170,7 +171,7 @@
   color: #ffffff;
   max-width: 291px;
   max-height: 12px;
-  top: calc(100% + 40px);
+  top: calc(100% + 20px);
   right: unset;
   position: absolute;
 }
@@ -205,6 +206,11 @@
     font-size: 18px;
   }
 
+  .modal__input {
+    margin: auto;
+    width: 238px;
+  }
+
   .modal__preview-image {
     max-width: 240px;
     height: 299px;
@@ -212,11 +218,11 @@
     left: 40px;
   }
 
-  .modal__close-preview {
+  .modal__close_preview {
     position: absolute;
     height: 26px;
     width: 26px;
-    top: -2px;
+    top: -5px;
     left: 260px;
   }
 
