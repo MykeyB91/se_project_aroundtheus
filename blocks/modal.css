@@ -23,6 +23,8 @@
   flex-flow: column wrap;
   width: 100%;
   max-width: 430px;
+
+  max-height: 100vh;
   box-sizing: border-box;
   justify-content: center;
 }
@@ -77,6 +79,10 @@
   flex-direction: column;
 }
 
+.modal__label {
+  position: relative;
+}
+
 .modal__input {
   font-size: 14px;
   height: 17px;
@@ -108,6 +114,9 @@
   padding: 0;
   padding-top: 13px;
   margin: 0;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
 }
 
 .modal__error_visible {
@@ -181,18 +190,22 @@
     position: relative;
     /*max-width: 282px;*/
     width: 282px;
-
+    height: 322px;
     padding-right: 19px;
     padding-left: 19px;
     padding-bottom: 25px;
     padding-top: 25px;
   }
 
+  .modal__form {
+    gap: 18px;
+  }
+
   .modal__close {
     position: absolute;
     height: 26px;
     width: 26px;
-    top: -40px;
+    top: -50px;
     left: 245px;
   }
 
@@ -208,6 +221,7 @@
 
   .modal__input {
     margin: auto;
+    padding-top: 0;
     width: 238px;
   }
 
