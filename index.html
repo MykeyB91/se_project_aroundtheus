@@ -47,114 +47,128 @@
     </div>
 
     <!-- Edit modal-->
-    <div class="modal modal__overlay" id="edit-modal">
-      <div class="modal__container modal__content">
-        <button type="button" class="modal__close"></button>
-        <h2 class="modal__heading">Edit profile</h2>
-        <form class="modal__form" id="profileEditForm" novalidate>
-          <label for="profile-title-input" class="modal__label">
-            <input
-              type="text"
-              name="title"
-              placeholder="Name"
-              class="modal__input modal__input_type_name"
-              id="profile-title-input"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span class="modal__error" id="profile-title-input-error"
-              >Please fill out this field.</span
-            >
-          </label>
+    <div class="modal" id="edit-modal">
+      <div class="modal__overlay">
+        <div class="modal__container modal__content">
+          <button type="button" class="modal__close"></button>
+          <h2 class="modal__heading">Edit profile</h2>
+          <form class="modal__form" id="profileEditForm" novalidate>
+            <label for="profile-title-input" class="modal__label">
+              <input
+                type="text"
+                name="title"
+                placeholder="Name"
+                class="modal__input modal__input_type_name"
+                id="profile-title-input"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span
+                class="modal__error modal__error_visible"
+                id="profile-title-input-error"
+                >Please fill out this field.</span
+              >
+            </label>
 
-          <label for="profile-description-input" class="modal__label">
-            <input
-              type="text"
-              name="description"
-              placeholder="Description"
-              class="modal__input modal__input_type_description"
-              id="profile-description-input"
-              minlength="2"
-              maxlength="200"
-              required
-            />
-            <span class="modal__error" id="profile-description-input-error"
-              >Please fill out this field.</span
-            >
-          </label>
+            <label for="profile-description-input" class="modal__label">
+              <input
+                type="text"
+                name="description"
+                placeholder="Description"
+                class="modal__input modal__input_type_description"
+                id="profile-description-input"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span
+                class="modal__error modal__error_visible"
+                id="profile-description-input-error"
+                >Please fill out this field.</span
+              >
+            </label>
 
-          <button
-            type="submit"
-            class="modal__button modal__button_disabled"
-            id="submitButton"
-          >
-            Save
-          </button>
-        </form>
+            <button
+              type="submit"
+              class="modal__button modal__button_disabled"
+              id="submitButton"
+            >
+              Save
+            </button>
+          </form>
+        </div>
       </div>
     </div>
 
     <!-- Add card modal -->
-    <div class="modal modal__overlay" id="add-modal">
-      <div class="modal__container modal__content">
-        <button type="button" class="modal__close"></button>
-        <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form" id="profileAddForm" novalidate>
-          <label for="add-title-input" class="modal__label">
-            <input
-              type="text"
-              name="title"
-              placeholder="Title"
-              class="modal__input modal__input_type_title"
-              id="add-title-input"
-              minlength="1"
-              maxlength="30"
-              required
-            />
-            <span class="modal__error" id="add-title-input-error"
-              >Please fill out this field.</span
-            >
-          </label>
+    <div class="modal" id="add-modal">
+      <div class="modal__overlay">
+        <div class="modal__container modal__content">
+          <button type="button" class="modal__close"></button>
+          <h2 class="modal__heading">New Place</h2>
+          <form class="modal__form" id="profileAddForm" novalidate>
+            <label for="add-title-input" class="modal__label">
+              <input
+                type="text"
+                name="title"
+                placeholder="Title"
+                class="modal__input modal__input_type_title"
+                id="add-title-input"
+                minlength="1"
+                maxlength="30"
+                required
+              />
+              <span
+                class="modal__error modal__error_visible"
+                id="add-title-input-error"
+                >Please fill out this field.</span
+              >
+            </label>
 
-          <label for="add-url-input" class="modal__label">
-            <input
-              type="url"
-              name="link"
-              placeholder="Image link"
-              class="modal__input modal__input_type_link"
-              id="add-url-input"
-              required
-            />
-            <span class="modal__error" id="add-url-input-error"
-              >Please enter web address.</span
-            >
-          </label>
+            <label for="add-url-input" class="modal__label">
+              <input
+                type="url"
+                name="link"
+                placeholder="Image link"
+                class="modal__input modal__input_type_link"
+                id="add-url-input"
+                required
+              />
+              <span
+                class="modal__error modal__error_visible"
+                id="add-url-input-error"
+                >Please enter web address.</span
+              >
+            </label>
 
-          <button
-            type="submit"
-            class="modal__button modal__button_disabled"
-            id="submitButton1"
-          >
-            Save
-          </button>
-        </form>
+            <button
+              type="submit"
+              class="modal__button modal__button_disabled"
+              id="submitButton1"
+            >
+              Save
+            </button>
+          </form>
+        </div>
       </div>
     </div>
 
     <!--Preview Image-->
-    <div class="modal modal__overlay" id="preview-image-modal">
-      <div class="modal__container modal__container-image modal__content">
-        <button
-          type="button"
-          class="modal__close modal__close_preview"
-        ></button>
-        <img
-          class="modal__preview-image"
-          src="path/to/placeholder.jpg"
-          alt="Image description"
-        />
-        <p class="modal__image-caption"></p>
+    <div class="modal" id="preview-image-modal">
+      <div class="modal__overlay">
+        <div class="modal__container modal__container-image modal__content">
+          <button
+            type="button"
+            class="modal__close modal__close_preview"
+          ></button>
+          <img
+            class="modal__preview-image"
+            src="path/to/placeholder.jpg"
+            alt="Image description"
+          />
+          <p class="modal__image-caption"></p>
+        </div>
       </div>
     </div>
 
