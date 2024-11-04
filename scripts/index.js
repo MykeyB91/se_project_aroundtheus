@@ -172,7 +172,7 @@ function closeModal(modal) {
   document.removeEventListener("keydown", handleEscKey);
 }
 
-const overlays = document.querySelectorAll(".modal__overlay");
+const overlays = document.querySelectorAll(".modal");
 overlays.forEach((overlay) => {
   overlay.addEventListener("click", () => {
     const modal = overlay.closest(".modal");
