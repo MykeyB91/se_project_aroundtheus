@@ -133,6 +133,7 @@
   margin: 48px 0 0;
   padding: 0;
   cursor: pointer;
+  font-size: 18px;
 }
 
 .modal__button_disabled {

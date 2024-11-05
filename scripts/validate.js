@@ -1,37 +1,8 @@
-// enabling validation by calling enableValidation()
-// pass all the settings on call
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   console.log("DOM fully loaded and parsed");
-
-//   document
-//     .querySelector("#open-profile-modal-btn")
-//     .addEventListener("click", () => {
-//       const profileModal = document.querySelector("#edit-modal");
-//       openModal(profileModal);
-//     });
-
-//   document
-//     .querySelector("#open-add-modal-btn")
-//     .addEventListener("click", () => {
-//       const addModal = document.querySelector("#add-modal");
-//       openModal(addModal);
-//     });
-// });
-
-// const forms = document.querySelectorAll(".modal__form");
-// forms.forEach((form) => {
-//   form.addEventListener("submit", (evt) => {
-//     evt.preventDefault();
-//   });
-// });
-
 function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.textContent = inputEl.validationMessage;
   errorMessageEl.classList.add(errorClass);
-  //console.log(`#${inputEl.id}-error`);
 }
 
 function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
@@ -64,8 +35,6 @@ function setEventListener(formEl, options) {
   const { inputSelector } = options;
   const inputElms = [...formEl.querySelectorAll(inputSelector)];
   const submitButton = formEl.querySelector(options.submitButtonSelector);
-  const inputError = formEl.querySelector(options.inputErrorClass);
-  const modalError = formEl.querySelector(options.errorClass);
 
   inputElms.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {

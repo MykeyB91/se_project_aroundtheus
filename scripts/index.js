@@ -87,7 +87,6 @@ function getCardElement(cardData) {
     previewImage.src = cardData.link;
     previewImage.alt = cardData.name;
     previewImageCaption.textContent = cardData.name;
-    return previewImageCaption;
   });
 
   cardImageEl.src = cardData.link;
@@ -101,7 +100,6 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
-  document.getElementById("profileEditForm").reset();
 }
 
 function handleProfileAddSubmit(e) {
@@ -110,7 +108,6 @@ function handleProfileAddSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
   closeModal(profileAddModal);
-  document.getElementById("profileAddForm").reset();
 }
 
 function handleImageClick(e) {
