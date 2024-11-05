@@ -100,6 +100,7 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
+  profileEditForm.reset();
 }
 
 function handleProfileAddSubmit(e) {
@@ -108,6 +109,7 @@ function handleProfileAddSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
   closeModal(profileAddModal);
+  profileAddForm.reset();
 }
 
 function handleImageClick(e) {
