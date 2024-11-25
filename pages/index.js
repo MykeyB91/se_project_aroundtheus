@@ -37,8 +37,7 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData);
-console.log(card);
+const card = new Card(cardData, "#card-template");
 
 //Variables
 const profileEditButton = document.querySelector("#profile__edit-button");
@@ -72,38 +71,38 @@ const cardUrlInput = profileAddForm.querySelector(".modal__input_type_link");
 
 //Functions
 
-function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
-}
+// function renderCard(cardData) {
+//   const cardElement = getCardElement(cardData);
+//   cardListEl.prepend(cardElement);
+// }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector(".card__delete-button");
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImageEl = cardElement.querySelector(".card__image");
+//   const cardTitleEl = cardElement.querySelector(".card__title");
+//   const likeButton = cardElement.querySelector(".card__like-button");
+//   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
+//   likeButton.addEventListener("click", () => {
+//     likeButton.classList.toggle("card__like-button_active");
+//   });
 
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+//   deleteButton.addEventListener("click", () => {
+//     cardElement.remove();
+//   });
 
-  cardImageEl.addEventListener("click", () => {
-    openModal(previewImageModal);
-    previewImage.src = cardData.link;
-    previewImage.alt = cardData.name;
-    previewImageCaption.textContent = cardData.name;
-  });
+//   cardImageEl.addEventListener("click", () => {
+//     openModal(previewImageModal);
+//     previewImage.src = cardData.link;
+//     previewImage.alt = cardData.name;
+//     previewImageCaption.textContent = cardData.name;
+//   });
 
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.link;
-  cardTitleEl.textContent = cardData.name;
-  return cardElement;
-}
+//   cardImageEl.src = cardData.link;
+//   cardImageEl.alt = cardData.link;
+//   cardTitleEl.textContent = cardData.name;
+//   return cardElement;
+// }
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
@@ -159,7 +158,7 @@ previewImageClosedButton.addEventListener("click", () => {
 });
 
 //forEach()
-initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+// initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 //Escape and Overlay functions & eventListeners
 function handleEscKey(evt) {
