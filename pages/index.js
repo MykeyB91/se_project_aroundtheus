@@ -158,7 +158,15 @@ previewImageClosedButton.addEventListener("click", () => {
 });
 
 //forEach()
-// initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+initialCards.forEach((cardData) => {
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick.generateCard()
+  );
+  cardListEl.prepend(card);
+  console.log("Card");
+});
 
 //Escape and Overlay functions & eventListeners
 function handleEscKey(evt) {

@@ -23,36 +23,41 @@ export default class Card {
     this._cardElement.remove();
   }
 
+  _handleImageClick() {
+    this._cardElement.querySelector(".card__image");
+  }
+
   _setEventListener() {
     //".card__image"
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handlePreviewImage();
+        this._handleImageClick();
       });
     //".card__title"
     this._cardElement.querySelector(".card__title");
+
     //".card__like-button"
     this._cardElement
       .querySelector(".card__like-button")
       .addEventListener("click", () => {
-        this._handleLikeIcon();
+        this._handleLikeButton();
       });
 
     //".card__delete-button"
     this._cardElement
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
-        this._handleDeleteIcon();
+        this._handleDeleteButton();
       });
 
-    this._cardImageElement.addEventListener("click", () => {
+    this._cardElement.addEventListener("click", () => {
       this._handleImageClick(this);
     });
   }
 
-  generateCard() {
-    this._cardElement = this._getTemplate();
+  _generateCard() {
+    this._cardElement = this._getView();
     this._cardElement.querySelector(".card__title").textContent = this._name;
     this._cardElement.querySelector(".card__image").src = this._link;
     this._setEventListener();
