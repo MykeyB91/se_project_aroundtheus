@@ -39,6 +39,16 @@ const cardData = {
 };
 
 const card = new Card(cardData, "#card-template");
+
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
 const profileEditFormValidator = new FormValidator(settings, profileEditForm);
 profileEditFormValidator.enableValidation();
 
@@ -116,15 +126,22 @@ function handleProfileEditSubmit(e) {
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
   profileEditForm.reset();
+  profileEditFormValidator.disableSubmitButton();
 }
 
 function handleProfileAddSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  renderCard({ name, link }, cardListEl);
+  const card = new Card(
+    { name, link },
+    "#card-template",
+    handleImageClick
+  ).generateCard();
+  cardListEl.prepend(card);
   closeModal(profileAddModal);
   profileAddForm.reset();
+  profileAddFormValidator.disableSubmitButton();
 }
 
 function handleImageClick(_name, _link) {
@@ -152,12 +169,7 @@ profileEditClosedButton.addEventListener("click", () => {
   closeModal(profileEditModal);
 });
 
-profileEditForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  profileEditForm.reset();
-  profileEditFormValidator.disableSubmitButton();
-});
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 //Add
 profileAddButton.addEventListener("click", () => {
@@ -168,12 +180,7 @@ profileAddClosedButton.addEventListener("click", () => {
   closeModal(profileAddModal);
 });
 
-profileAddForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  profileAddForm.reset();
-  profileAddForm.disableSubmitButton();
-});
+profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 //Image
 previewImageClosedButton.addEventListener("click", () => {
@@ -225,12 +232,3 @@ modalContents.forEach((content) => {
     evt.stopPropagation(); // Prevents clicks inside modal from bubbling up to overlay
   });
 });
-
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
