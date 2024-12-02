@@ -7,10 +7,10 @@ export default class Card {
   }
 
   _getView() {
-    this._cardElement = document
+    return (this._cardElement = document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
-      .cloneNode(true);
+      .cloneNode(true));
   }
 
   _handleLikeButton() {
@@ -32,7 +32,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleImageClick();
+        this._handleImageClick(this._name, this._link);
       });
     //".card__title"
     this._cardElement.querySelector(".card__title");
@@ -51,9 +51,9 @@ export default class Card {
         this._handleDeleteButton();
       });
 
-    this._cardElement.addEventListener("click", () => {
-      this._handleImageClick(this);
-    });
+    // this._cardElement.addEventListener("click", () => {
+    //   this._handleImageClick(this);
+    // });
   }
 
   _generateCard() {

@@ -1,4 +1,5 @@
 import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -38,6 +39,11 @@ const cardData = {
 };
 
 const card = new Card(cardData, "#card-template");
+const profileEditFormValidator = new FormValidator(settings, profileEditForm);
+profileEditFormValidator.enableValidation();
+
+const profileAddFormValidator = new FormValidator(settings, profileAddForm);
+profileAddFormValidator.enableValidation();
 
 //Variables
 const profileEditButton = document.querySelector("#profile__edit-button");
@@ -83,9 +89,9 @@ const cardUrlInput = profileAddForm.querySelector(".modal__input_type_link");
 //   const likeButton = cardElement.querySelector(".card__like-button");
 //   const deleteButton = cardElement.querySelector(".card__delete-button");
 
-//   likeButton.addEventListener("click", () => {
-//     likeButton.classList.toggle("card__like-button_active");
-//   });
+// likeButton.addEventListener("click", () => {
+//   likeButton.classList.toggle("card__like-button_active");
+// });
 
 //   deleteButton.addEventListener("click", () => {
 //     cardElement.remove();
@@ -121,9 +127,16 @@ function handleProfileAddSubmit(e) {
   profileAddForm.reset();
 }
 
-function handleImageClick(e) {
-  e.preventDefault();
-  closeModal(previewImageModal);
+function handleImageClick(_name, _link) {
+  const modalImage = document.querySelector(".modal__preview-image");
+  const modalTitle = document.querySelector(".modal__image-caption");
+
+  modalImage.alt = _name;
+  modalImage.src = _link;
+  modalTitle.textContent = _name;
+
+  openModal(previewImageModal);
+  //closeModal(previewImageModal);
 }
 
 //EventListeners Below
@@ -139,7 +152,12 @@ profileEditClosedButton.addEventListener("click", () => {
   closeModal(profileEditModal);
 });
 
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+profileEditForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  profileEditForm.reset();
+  profileEditFormValidator.disableSubmitButton();
+});
 
 //Add
 profileAddButton.addEventListener("click", () => {
@@ -150,7 +168,12 @@ profileAddClosedButton.addEventListener("click", () => {
   closeModal(profileAddModal);
 });
 
-profileAddForm.addEventListener("submit", handleProfileAddSubmit);
+profileAddForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  profileAddForm.reset();
+  profileAddForm.disableSubmitButton();
+});
 
 //Image
 previewImageClosedButton.addEventListener("click", () => {
@@ -162,10 +185,10 @@ initialCards.forEach((cardData) => {
   const card = new Card(
     cardData,
     "#card-template",
-    handleImageClick.generateCard()
-  );
+    handleImageClick
+  )._generateCard();
+
   cardListEl.prepend(card);
-  console.log("Card");
 });
 
 //Escape and Overlay functions & eventListeners
@@ -202,3 +225,12 @@ modalContents.forEach((content) => {
     evt.stopPropagation(); // Prevents clicks inside modal from bubbling up to overlay
   });
 });
+
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
