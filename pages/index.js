@@ -49,9 +49,11 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
+const profileEditForm = document.querySelector("#profileEditForm");
 const profileEditFormValidator = new FormValidator(settings, profileEditForm);
 profileEditFormValidator.enableValidation();
 
+const profileAddForm = document.querySelector("#profileAddForm");
 const profileAddFormValidator = new FormValidator(settings, profileAddForm);
 profileAddFormValidator.enableValidation();
 
@@ -65,14 +67,12 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
-const profileEditForm = document.querySelector("#profileEditForm");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const profileAddModal = document.querySelector("#add-modal");
 const profileAddButton = document.querySelector(".profile__add-button");
 const profileAddClosedButton = profileAddModal.querySelector(".modal__close");
-const profileAddForm = document.querySelector("#profileAddForm");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImage = document.querySelector(".modal__preview-image");
 const previewImageClosedButton =
