@@ -137,7 +137,7 @@ function handleProfileAddSubmit(e) {
     { name, link },
     "#card-template",
     handleImageClick
-  ).generateCard();
+  )._generateCard();
   cardListEl.prepend(card);
   closeModal(profileAddModal);
   profileAddForm.reset();
