@@ -109,7 +109,7 @@ function handleProfileAddSubmit(e) {
 
 function createCard(item) {
   const card = new Card(item, "#card-template", handleImageClick);
-  return card._generateCard();
+  return card.generateCard();
 }
 
 initialCards.forEach((cardData) => {

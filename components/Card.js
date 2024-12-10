@@ -44,13 +44,9 @@ export default class Card {
       .addEventListener("click", () => {
         this._handleDeleteButton();
       });
-
-    // this._cardElement.addEventListener("click", () => {
-    //   this._handleImageClick(this);
-    // });
   }
 
-  _generateCard() {
+  generateCard() {
     this._cardElement = this._getView();
     this._cardElement.querySelector(".card__title").textContent = this.name;
     this._cardElement.querySelector(".card__image").src = this.link;
