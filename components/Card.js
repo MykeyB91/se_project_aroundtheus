@@ -28,7 +28,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleImageClick(this._name, this._link);
+        this._handleImageClick(this.name, this.link);
       });
 
     //".card__like-button"
@@ -53,7 +53,6 @@ export default class Card {
   _generateCard() {
     this._cardElement = this._getView();
     this._cardElement.querySelector(".card__title").textContent = this.name;
-    // const imageElement = this._cardElement.querySelector(".card__image");
     this._cardElement.querySelector(".card__image").src = this.link;
     this._cardElement.querySelector(".card__image").alt = this.name;
     this._setEventListener();

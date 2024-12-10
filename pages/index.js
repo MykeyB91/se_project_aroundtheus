@@ -98,6 +98,10 @@ function handleProfileAddSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
+
+  const cardElement = createCard({ name, link });
+  cardListEl.prepend(cardElement);
+
   closeModal(profileAddModal);
   profileAddForm.reset();
   profileAddFormValidator.disableSubmitButton();
@@ -154,15 +158,15 @@ previewImageClosedButton.addEventListener("click", () => {
 });
 
 //forEach()
-initialCards.forEach((cardData) => {
-  const card = new Card(
-    cardData,
-    "#card-template",
-    handleImageClick
-  )._generateCard();
+// initialCards.forEach((cardData) => {
+//   const card = new Card(
+//     cardData,
+//     "#card-template",
+//     handleImageClick
+//   )._generateCard();
 
-  cardListEl.prepend(card);
-});
+//   cardListEl.prepend(card);
+// });
 
 //Escape and Overlay functions & eventListeners
 function handleEscKey(evt) {
