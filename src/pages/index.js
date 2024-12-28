@@ -123,7 +123,6 @@ function handleImageClick(name, link) {
   modalTitle.textContent = name;
 
   openModal(previewImageModal);
-  //closeModal(previewImageModal);
 }
 
 //EventListeners Below
@@ -156,17 +155,6 @@ profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 previewImageClosedButton.addEventListener("click", () => {
   closeModal(previewImageModal);
 });
-
-//forEach()
-// initialCards.forEach((cardData) => {
-//   const card = new Card(
-//     cardData,
-//     "#card-template",
-//     handleImageClick
-//   )._generateCard();
-
-//   cardListEl.prepend(card);
-// });
 
 //Escape and Overlay functions & eventListeners
 function handleEscKey(evt) {
