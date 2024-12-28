@@ -7,11 +7,11 @@ module.exports = {
   devtool: "inline-source-map",
   entry: {
     main: "./src/pages/index.js",
-    main: "./src/pages/index.css",
+    style: "./src/pages/index.css",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
+    filename: "[name].bundle.js",
     publicPath: "",
   },
   target: ["web", "es5"],
@@ -53,6 +53,8 @@ module.exports = {
       template: "./src/index.html",
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
   ],
 };
