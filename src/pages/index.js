@@ -88,7 +88,7 @@ const section = new Section(
       section.addItem(card);
     },
   },
-  ".cards_container"
+  ".cards__container"
 );
 
 section.renderItems();
@@ -117,11 +117,11 @@ const newUserData = {
 };
 userInfo.setUserInfo(newUserData);
 
-const profileForm = document.querySelector(".profile-form");
+const profileForm = document.querySelector(".modal__form");
 profileForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const nameInput = document.querySelector(".profile-form__input_type_name");
-  const jobInput = document.querySelector(".profile-form__input_type_job");
+  const nameInput = document.querySelector(".modal__input_type_name");
+  const jobInput = document.querySelector(".modal__input_type_description");
   const updateData = {
     name: nameInput.value,
     job: jobInput.value,
