@@ -93,19 +93,31 @@ const section = new Section(
 
 section.renderItems();
 
-const formPopup1 = new PopupWithForm("#profileEditForm", (formData) => {
+const profileEditPopup = new PopupWithForm("#edit-modal", (formData) => {
   console.log("Form 1 submitted with data:", formData);
 });
-formPopup1.setEventListeners();
+profileEditPopup.setEventListeners();
 
-const formPopup2 = new PopupWithForm("#profileAddForm", (formData) => {
+const profileAddPopup = new PopupWithForm("#add-modal", (formData) => {
   console.log("Form 2 submitted with data:", formData);
 });
-formPopup2.setEventListeners();
+profileAddPopup.setEventListeners();
+
+//Event Listeners for opening Modals
+const profileEditButton = document.querySelector("#profile__edit-button");
+const profileAddButton = document.querySelector(".profile__add-button");
+
+profileEditButton.addEventListener("click", () => {
+  profileEditPopup.open();
+});
+
+profileAddButton.addEventListener("click", () => {
+  profileAddPopup.open();
+});
 
 const userInfo = new UserInfo({
-  nameSelector: ".profile__name",
-  jobSelector: ".profile__job",
+  nameSelector: ".profile__title",
+  jobSelector: ".profile__description",
 });
 
 const userData = UserInfo.getUserInfo();
@@ -130,7 +142,7 @@ profileForm.addEventListener("submit", (event) => {
 });
 
 // Profile Edit Modal
-const profileEditButton = document.querySelector("#profile__edit-button");
+// const profileEditButton = document.querySelector("#profile__edit-button");
 const profileEditModal = document.querySelector("#edit-modal");
 const profileEditClosedButton = profileEditModal.querySelector(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
@@ -145,7 +157,7 @@ const cardTemplate =
 
 // Add Card Modal
 const profileAddModal = document.querySelector("#add-modal");
-const profileAddButton = document.querySelector(".profile__add-button");
+// const profileAddButton = document.querySelector(".profile__add-button");
 const profileAddClosedButton = profileAddModal.querySelector(".modal__close");
 
 // Preview Image Modal
@@ -189,28 +201,28 @@ function handleProfileAddSubmit(e) {
 //EventListeners Below
 
 //Edit
-profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  openModal(profileEditModal);
-});
+// profileEditButton.addEventListener("click", () => {
+//   profileTitleInput.value = profileTitle.textContent;
+//   profileDescriptionInput.value = profileDescription.textContent;
+//   open(profileEditPopup);
+// });
 
-profileEditClosedButton.addEventListener("click", () => {
-  closeModal(profileEditModal);
-});
+// profileEditClosedButton.addEventListener("click", () => {
+//   close(profileEditPopup);
+// });
 
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+// profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-//Add
-profileAddButton.addEventListener("click", () => {
-  openModal(profileAddModal);
-});
+// //Add
+// profileAddButton.addEventListener("click", () => {
+//   open(profileAddPopup);
+// });
 
-profileAddClosedButton.addEventListener("click", () => {
-  closeModal(profileAddModal);
-});
+// profileAddClosedButton.addEventListener("click", () => {
+//   close(profileAddPopup);
+// });
 
-profileAddForm.addEventListener("submit", handleProfileAddSubmit);
+// profileAddForm.addEventListener("submit", handleProfileAddSubmit);
 
 //Image
 previewImageClosedButton.addEventListener("click", () => {
