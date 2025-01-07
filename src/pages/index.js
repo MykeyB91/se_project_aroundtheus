@@ -78,7 +78,7 @@ function handleImageClick(name, link) {
   openModal(previewImageModal);
 }
 
-const items = [{ name: "Item 1" }, { name: "Item 2" }, { name: "Item 3" }];
+const items = [];
 
 const section = new Section(
   {
@@ -88,17 +88,17 @@ const section = new Section(
       section.addItem(card);
     },
   },
-  ".cards-container"
+  ".cards_container"
 );
 
 section.renderItems();
 
-const formPopup1 = new PopupWithForm(".popup_type_form1", (formData) => {
+const formPopup1 = new PopupWithForm("#profileEditForm", (formData) => {
   console.log("Form 1 submitted with data:", formData);
 });
 formPopup1.setEventListeners();
 
-const formPopup2 = new PopupWithForm(".popup_type_form2", (formData) => {
+const formPopup2 = new PopupWithForm("#profileAddForm", (formData) => {
   console.log("Form 2 submitted with data:", formData);
 });
 formPopup2.setEventListeners();
