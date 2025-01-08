@@ -115,6 +115,7 @@ profileAddButton.addEventListener("click", () => {
   profileAddPopup.open();
 });
 
+//UserInfo
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
   jobSelector: ".profile__description",
