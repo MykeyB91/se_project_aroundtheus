@@ -70,14 +70,17 @@ initialCards.forEach((cardData) => {
   cardListEl.prepend(cardElement);
 });
 
+//Image Modal
 function handleImageClick(name, link) {
+  const modalImage = document.querySelector(".modal__preview-image");
+  const modalTitle = document.querySelector(".modal__image-caption");
   modalImage.alt = name;
   modalImage.src = link;
   modalTitle.textContent = name;
-
-  openModal(previewImageModal);
+  openModal(document.querySelector("#preview-image-modal"));
 }
 
+//Section
 const items = [];
 
 const section = new Section(
@@ -93,6 +96,22 @@ const section = new Section(
 
 section.renderItems();
 
+//Handling Form Submissions
+const handleProfileEditSave = (formData) => {
+  const profileName = document.querySelector(".profile__title");
+  const profileJob = document.querySelector(".profile__description");
+  profileTitle.textContent = formData.name;
+  profileDescription.textContent = formData.description;
+  profileEditPopup.close();
+};
+
+const handleProfileAddSave = (formData) => {
+  const cardElement = createCard({ name: formData.title, link: formData.link });
+  cardListEl.prepend(cardElement);
+  profileAddPopup.close();
+};
+
+//Initializing Popups
 const profileEditPopup = new PopupWithForm("#edit-modal", (formData) => {
   console.log("Form 1 submitted with data:", formData);
 });
@@ -139,7 +158,7 @@ profileForm.addEventListener("submit", (event) => {
     name: nameInput.value,
     job: jobInput.value,
   };
-  userInfo.setuserInfo(updateData);
+  userInfo.setUserInfo(updateData);
 });
 
 // Profile Edit Modal
@@ -202,28 +221,28 @@ function handleProfileAddSubmit(e) {
 //EventListeners Below
 
 //Edit
-// profileEditButton.addEventListener("click", () => {
-//   profileTitleInput.value = profileTitle.textContent;
-//   profileDescriptionInput.value = profileDescription.textContent;
-//   open(profileEditPopup);
-// });
+profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
+  open(profileEditPopup);
+});
 
-// profileEditClosedButton.addEventListener("click", () => {
-//   close(profileEditPopup);
-// });
+profileEditClosedButton.addEventListener("click", () => {
+  close(profileEditPopup);
+});
 
-// profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+profileForm.addEventListener("submit", handleProfileEditSave);
 
-// //Add
-// profileAddButton.addEventListener("click", () => {
-//   open(profileAddPopup);
-// });
+//Add
+profileAddButton.addEventListener("click", () => {
+  open(profileAddPopup);
+});
 
-// profileAddClosedButton.addEventListener("click", () => {
-//   close(profileAddPopup);
-// });
+profileAddClosedButton.addEventListener("click", () => {
+  close(profileAddPopup);
+});
 
-// profileAddForm.addEventListener("submit", handleProfileAddSubmit);
+profileForm.addEventListener("submit", handleProfileAddSave);
 
 //Image
 previewImageClosedButton.addEventListener("click", () => {

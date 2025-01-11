@@ -23,8 +23,8 @@ class Popup {
   setEventListeners() {
     this._popup.addEventListener("click", (event) => {
       if (
-        event.target.classList.contains(".modal__close-button") ||
-        event.target.classList.contains("modal_opened")
+        event.target.classList.contains("modal__close") ||
+        event.target.classList.contains("modal")
       ) {
         this.close();
       }
