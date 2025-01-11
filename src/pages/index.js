@@ -98,10 +98,8 @@ section.renderItems();
 
 //Handling Form Submissions
 const handleProfileEditSave = (formData) => {
-  const profileName = document.querySelector(".profile__title");
-  const profileJob = document.querySelector(".profile__description");
-  profileTitle.textContent = formData.name;
-  profileDescription.textContent = formData.description;
+  profileTitleInput.textContent = formData.name;
+  profileDescriptionInput.textContent = formData.description;
   profileEditPopup.close();
 };
 
@@ -113,25 +111,47 @@ const handleProfileAddSave = (formData) => {
 
 //Initializing Popups
 const profileEditPopup = new PopupWithForm("#edit-modal", (formData) => {
-  console.log("Form 1 submitted with data:", formData);
+  // console.log("Form 1 submitted with data:", formData);
 });
 profileEditPopup.setEventListeners();
 
 const profileAddPopup = new PopupWithForm("#add-modal", (formData) => {
-  console.log("Form 2 submitted with data:", formData);
+  // console.log("Form 2 submitted with data:", formData);
 });
 profileAddPopup.setEventListeners();
 
 //Event Listeners for opening Modals
 const profileEditButton = document.querySelector("#profile__edit-button");
 const profileAddButton = document.querySelector(".profile__add-button");
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+
+const profileForm = document.querySelector(".modal__form");
+profileForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const nameInput = document.querySelector(".modal__input_type_name");
+  const jobInput = document.querySelector(".modal__input_type_description");
+  const updateData = {
+    name: nameInput.value,
+    job: jobInput.value,
+  };
+  userInfo.setUserInfo(updateData);
+});
 
 profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitleInput.textContents;
+  profileDescriptionInput.value = profileTitleInput.titleContent;
   profileEditPopup.open();
+
+  profileForm.addEventListener("submit", handleProfileEditSave);
 });
 
 profileAddButton.addEventListener("click", () => {
   profileAddPopup.open();
+
+  profileAddForm.addEventListener("submit", handleProfileAddSave);
 });
 
 //UserInfo
@@ -149,17 +169,17 @@ const newUserData = {
 };
 userInfo.setUserInfo(newUserData);
 
-const profileForm = document.querySelector(".modal__form");
-profileForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const nameInput = document.querySelector(".modal__input_type_name");
-  const jobInput = document.querySelector(".modal__input_type_description");
-  const updateData = {
-    name: nameInput.value,
-    job: jobInput.value,
-  };
-  userInfo.setUserInfo(updateData);
-});
+// const profileForm = document.querySelector(".modal__form");
+// profileForm.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   const nameInput = document.querySelector(".modal__input_type_name");
+//   const jobInput = document.querySelector(".modal__input_type_description");
+//   const updateData = {
+//     name: nameInput.value,
+//     job: jobInput.value,
+//   };
+//   userInfo.setUserInfo(updateData);
+// });
 
 // Profile Edit Modal
 // const profileEditButton = document.querySelector("#profile__edit-button");
@@ -167,10 +187,10 @@ const profileEditModal = document.querySelector("#edit-modal");
 const profileEditClosedButton = profileEditModal.querySelector(".modal__close");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
+// const profileTitleInput = document.querySelector("#profile-title-input");
+// const profileDescriptionInput = document.querySelector(
+//   "#profile-description-input"
+// );
 
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -200,7 +220,7 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closeModal(profileEditModal);
+  closeModal(document.querySelector("#edit-modal"));
   profileEditForm.reset();
   profileEditFormValidator.disableSubmitButton();
 }
@@ -213,7 +233,7 @@ function handleProfileAddSubmit(e) {
   const cardElement = createCard({ name, link });
   cardListEl.prepend(cardElement);
 
-  closeModal(profileAddModal);
+  closeModal(document.querySelector("#add-modal"));
   profileAddForm.reset();
   profileAddFormValidator.disableSubmitButton();
 }
@@ -221,28 +241,28 @@ function handleProfileAddSubmit(e) {
 //EventListeners Below
 
 //Edit
-profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  open(profileEditPopup);
-});
+// profileEditButton.addEventListener("click", () => {
+//   profileTitleInput.value = profileTitle.textContent;
+//   profileDescriptionInput.value = profileDescription.textContent;
+//   open(profileEditPopup);
+// });
 
-profileEditClosedButton.addEventListener("click", () => {
-  close(profileEditPopup);
-});
+// profileEditClosedButton.addEventListener("click", () => {
+//   close(profileEditPopup);
+// });
 
-profileForm.addEventListener("submit", handleProfileEditSave);
+// profileForm.addEventListener("submit", handleProfileEditSave);
 
 //Add
-profileAddButton.addEventListener("click", () => {
-  open(profileAddPopup);
-});
+// profileAddButton.addEventListener("click", () => {
+//   open(profileAddPopup);
+// });
 
-profileAddClosedButton.addEventListener("click", () => {
-  close(profileAddPopup);
-});
+// profileAddClosedButton.addEventListener("click", () => {
+//   close(profileAddPopup);
+// });
 
-profileForm.addEventListener("submit", handleProfileAddSave);
+// profileForm.addEventListener("submit", handleProfileAddSave);
 
 //Image
 previewImageClosedButton.addEventListener("click", () => {
