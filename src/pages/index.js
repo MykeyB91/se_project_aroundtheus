@@ -18,9 +18,16 @@ const profileAddFormValidator = new FormValidator(settings, profileAddForm);
 profileAddFormValidator.enableValidation();
 
 //Image Modal
+const previewImagePopup = new PopupWithImage("#preview-image-modal");
 const handleImageClick = (name, link) => {
-  const previewImagePopup = new PopupWithImage("#preview-image-modal");
-  previewImagePopup.open(link, name);
+  previewImagePopup.open(name, link);
+};
+
+//Handling Form Submissions
+const handleProfileEditSave = (formData) => {
+  console.log("Form Data:", formData);
+  userInfo.setUserInfo({ name: formData.title, job: formData.description });
+  profileEditPopup.close();
 };
 
 //Create Card Functon
@@ -43,7 +50,7 @@ section.renderItems();
 
 //Initializing Popups
 const profileEditPopup = new PopupWithForm("#edit-modal", (formData) => {
-  // userInfo.setUserInfo({ name: formData.name, job: formData.job });
+  handleProfileEditSave(formData);
 });
 profileEditPopup.setEventListeners();
 
@@ -51,18 +58,6 @@ const profileAddPopup = new PopupWithForm("#add-modal", (formData) => {
   section.addItem(createCard({ name: formData.title, link: formData.link }));
 });
 profileAddPopup.setEventListeners();
-
-//Handling Form Submissions
-const handleProfileEditSave = (formData) => {
-  console.log("Form Data:", formData);
-  userInfo.setUserInfo({ title: formData.name, description: formData.job });
-  profileEditPopup.close();
-};
-
-// const handleProfileAddSave = (formData) => {
-//   section.addItem(createCard({ name: formData.title, link: formData.link }));
-//   profileAddPopup.close();
-// };
 
 //Initialize User Info
 const userInfo = new UserInfo({
@@ -85,30 +80,6 @@ document.querySelector(".profile__add-button").addEventListener("click", () => {
   profileAddPopup.open();
 });
 
-//Handling Form Submissions
-document
-  .querySelector("#profileEditForm")
-  .addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = {
-      title: document.querySelector("#profile-title-input").value,
-      description: document.querySelector("#profile-description-input").value,
-    };
-
-    handleProfileEditSave(formData);
-  });
-
-document
-  .querySelector("#profileAddForm")
-  .addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = {
-      title: document.querySelector("#add-title-input").value,
-      link: document.querySelector("#add-url-input").value,
-    };
-    handleProfileAddSave(formData);
-  });
-
 //User Info
 const userData = userInfo.getUserInfo();
 console.log("User Data", userData);
@@ -120,25 +91,27 @@ const newUserData = {
 userInfo.setUserInfo(newUserData);
 
 // Profile Edit Modal
-// const profileEditButton = document.querySelector("#profile__edit-button");
 const profileEditModal = document.querySelector("#edit-modal");
-const profileEditClosedButton = profileEditModal.querySelector(".modal__close");
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
+const profileEditClosedButton = profileEditModal.querySelector(
+  "#edit-modal .modal__close"
 );
-// const profileTitleInput = document.querySelector("#profile-title-input");
-// const profileDescriptionInput = document.querySelector(
-//   "#profile-description-input"
-// );
+
+profileEditClosedButton.addEventListener("click", () => {
+  closeModal(document.querySelector("#edit-modal"));
+});
 
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
 // Add Card Modal
 const profileAddModal = document.querySelector("#add-modal");
-// const profileAddButton = document.querySelector(".profile__add-button");
-const profileAddClosedButton = profileAddModal.querySelector(".modal__close");
+const profileAddClosedButton = profileAddModal.querySelector(
+  "#add-modal .modal__close"
+);
+
+profileAddClosedButton.addEventListener("click", () => {
+  closeModal(document.querySelector("#add-modal"));
+});
 
 // Preview Image Modal
 const previewImageModal = document.querySelector("#preview-image-modal");
@@ -149,12 +122,6 @@ const previewImage = document.querySelector(".modal__preview-image");
 const previewImageCaption = document.querySelector(".modal__image-caption");
 const modalImage = document.querySelector(".modal__preview-image");
 const modalTitle = document.querySelector(".modal__image-caption");
-
-//Form Data
-const nameInput = profileEditForm.querySelector("modal__input_type_name");
-const jobInput = profileEditForm.querySelector("modal__input_type_description");
-const cardTitleInput = profileAddForm.querySelector(".modal__input_type_title");
-const cardUrlInput = profileAddForm.querySelector(".modal__input_type_link");
 
 //Image
 const previewImageClosedButton = document.querySelector(".modal__close");
