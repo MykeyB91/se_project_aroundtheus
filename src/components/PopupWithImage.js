@@ -14,7 +14,7 @@ export default class PopupWithImage extends Popup {
       console.error("Image or caption element not found");
       return;
     }
-    this._image.src = name;
+    this._image.src = link;
     this._image.alt = link;
     this._caption.textContent = name;
     super.open();

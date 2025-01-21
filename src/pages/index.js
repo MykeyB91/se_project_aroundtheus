@@ -124,7 +124,9 @@ const modalImage = document.querySelector(".modal__preview-image");
 const modalTitle = document.querySelector(".modal__image-caption");
 
 //Image
-const previewImageClosedButton = document.querySelector(".modal__close");
+const previewImageClosedButton = document.querySelector(
+  ".modal__close-preview"
+);
 previewImageClosedButton.addEventListener("click", () => {
   closeModal(document.querySelector("#preview-image-modal"));
 });
