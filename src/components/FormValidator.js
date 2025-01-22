@@ -78,6 +78,4 @@ export default class FormValidator {
     });
     this._toggleButtonState();
   }
-
-  // _enableValidation(settings);
 }

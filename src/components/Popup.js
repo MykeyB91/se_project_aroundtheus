@@ -32,4 +32,4 @@ class Popup {
   }
 }
 
-export { Popup };
+export default Popup;
