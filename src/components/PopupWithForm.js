@@ -18,7 +18,6 @@ class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this._form.reset();
   }
 
   setEventListeners() {
@@ -27,6 +26,10 @@ class PopupWithForm extends Popup {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
       this.close();
+      this._form.reset();
+      if (this._formValidator) {
+        this._formValidator.resetValidation();
+      }
     });
   }
 }

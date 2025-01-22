@@ -1,15 +1,17 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
-// import Popup from "../components/Popup.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { initialCards, settings } from "../utils/constants.js";
 
-const cardListEl = document.querySelector(".cards__list");
-const profileEditForm = document.querySelector("#profileEditForm");
-const profileAddForm = document.querySelector("#profileAddForm");
+const profileEditForm = document.querySelector("#profile-edit-form");
+const profileAddForm = document.querySelector("#profile-add-form");
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
 
 //Form Validation
 const profileEditFormValidator = new FormValidator(settings, profileEditForm);
@@ -41,6 +43,9 @@ profileAddPopup.setEventListeners();
 const handleProfileEditSave = (formData) => {
   console.log("Form Data:", formData);
   userInfo.setUserInfo({ name: formData.title, job: formData.description });
+  document.querySelector(".profile__title").textContent = formData.title;
+  document.querySelector(".profile__description").textContent =
+    formData.description;
   profileEditPopup.close();
 };
 
@@ -64,25 +69,22 @@ section.renderItems();
 
 //Initialize User Info
 const userInfo = new UserInfo({
-  nameSelector: ".profile__title",
-  jobSelector: ".profile__description",
+  nameSelector: "#profile-title-input",
+  jobSelector: "#profile-description-input",
 });
 
 //Event Listeners for opening Modals
-document
-  .querySelector("#profile__edit-button")
-  .addEventListener("click", () => {
-    const userInfoData = userInfo.getUserInfo();
-    document.querySelector("#profile-title-input").value = userInfoData.name;
-    document.querySelector("#profile-description-input").value =
-      userInfoData.job;
-    profileEditPopup.open();
-    profileEditFormValidator.disableSubmitButton();
-  });
+document.querySelector("#profile-edit-button").addEventListener("click", () => {
+  const userInfoData = userInfo.getUserInfo();
+  profileTitleInput.value = userInfoData.name;
+  profileDescriptionInput.value = userInfoData.job;
+  profileEditPopup.open();
+  profileEditFormValidator.disableSubmitButton();
+});
 
-document.querySelector(".profile__add-button").addEventListener("click", () => {
+document.querySelector("#profile-add-button").addEventListener("click", () => {
   profileAddPopup.open();
-  profileAddFormValidator.disableSubmitButton();
+  profileAddFormValidator.resetValidation();
 });
 
 //User Info

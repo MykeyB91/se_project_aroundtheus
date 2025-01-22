@@ -28,12 +28,16 @@
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
               class="profile__edit-button"
-              id="profile__edit-button"
+              id="profile-edit-button"
               type="button"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            id="profile-add-button"
+            type="button"
+          ></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list cards__container"></ul>
@@ -49,7 +53,7 @@
       <div class="modal__container modal__content">
         <button type="button" class="modal__close"></button>
         <h2 class="modal__heading">Edit profile</h2>
-        <form class="modal__form" id="profileEditForm" novalidate>
+        <form class="modal__form" id="profile-edit-form" novalidate>
           <label for="profile-title-input" class="modal__label">
             <input
               type="text"
@@ -98,7 +102,7 @@
       <div class="modal__container modal__content">
         <button type="button" class="modal__close"></button>
         <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form" id="profileAddForm" novalidate>
+        <form class="modal__form" id="profile-add-form" novalidate>
           <label for="add-title-input" class="modal__label">
             <input
               type="text"
