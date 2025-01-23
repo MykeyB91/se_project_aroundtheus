@@ -36,6 +36,7 @@ profileEditPopup.setEventListeners();
 
 const profileAddPopup = new PopupWithForm("#add-modal", (formData) => {
   section.addItem(createCard({ name: formData.title, link: formData.link }));
+  profileAddFormValidator.disableSubmitButton();
 });
 profileAddPopup.setEventListeners();
 
@@ -43,9 +44,6 @@ profileAddPopup.setEventListeners();
 const handleProfileEditSave = (formData) => {
   console.log("Form Data:", formData);
   userInfo.setUserInfo({ name: formData.title, job: formData.description });
-  document.querySelector(".profile__title").textContent = formData.title;
-  document.querySelector(".profile__description").textContent =
-    formData.description;
   profileEditPopup.close();
 };
 
@@ -69,8 +67,8 @@ section.renderItems();
 
 //Initialize User Info
 const userInfo = new UserInfo({
-  nameSelector: "#profile-title-input",
-  jobSelector: "#profile-description-input",
+  nameSelector: ".profile__title",
+  jobSelector: ".profile__description",
 });
 
 //Event Listeners for opening Modals
@@ -84,7 +82,6 @@ document.querySelector("#profile-edit-button").addEventListener("click", () => {
 
 document.querySelector("#profile-add-button").addEventListener("click", () => {
   profileAddPopup.open();
-  profileAddFormValidator.resetValidation();
 });
 
 //User Info

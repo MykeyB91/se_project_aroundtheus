@@ -27,9 +27,6 @@ class PopupWithForm extends Popup {
       this._handleFormSubmit(this._getInputValues());
       super.close();
       this._form.reset();
-      if (this._formValidator) {
-        this._formValidator.resetValidation();
-      }
     });
   }
 }
