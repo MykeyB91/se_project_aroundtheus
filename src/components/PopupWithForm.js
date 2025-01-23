@@ -25,7 +25,7 @@ class PopupWithForm extends Popup {
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this.close();
+      super.close();
       this._form.reset();
       if (this._formValidator) {
         this._formValidator.resetValidation();
