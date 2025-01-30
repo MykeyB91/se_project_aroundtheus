@@ -42,8 +42,8 @@ Last but not least, this design uses media queries. Along with using 'Flex and G
 
 I hope this overview provides enough details on the project. Below is my website along with a video of me describing the project.
 
- https://mykeyb91.github.io/se_project_aroundtheus/
+https://mykeyb91.github.io/se_project_aroundtheus/
 
- https://youtu.be/SxlVb-vZN0c
+https://youtu.be/SxlVb-vZN0c
 
-Have fun and HAPPY coding!
+Have fun and HAPPY CODING!
